@@ -32,6 +32,8 @@ describe 'Neo4j adapter' do
       matrix = rom.read(:movies).by_title('The Matrix').first
 
       expect(matrix.title).to eql('The Matrix')
+      expect(matrix.released).to eql(1999)
+      expect(matrix.tagline).to eql('Welcome to the Real World')
     end
   end
 end
