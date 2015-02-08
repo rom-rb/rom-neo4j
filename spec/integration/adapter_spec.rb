@@ -18,7 +18,7 @@ describe 'Neo4j adapter' do
 
     setup.mappers do
       define(:movies) do
-        model name: 'Node'
+        model name: 'Movie'
 
         attribute :title
         attribute :released
