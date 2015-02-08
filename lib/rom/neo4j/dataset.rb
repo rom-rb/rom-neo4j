@@ -46,10 +46,6 @@ module ROM
         @traversal.return(n: @properties).to_a
       end
 
-      def self.row_proc
-        -> row { puts row; row.to_hash }
-      end
-
       def each(&iter)
         to_a.each(&iter)
       end
