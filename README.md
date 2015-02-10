@@ -1,4 +1,4 @@
-# ROM Neo4j
+# ROM::Neo4j
 
 Map objects returned from Neo4j graph traversals using the ROM toolkit.
 
