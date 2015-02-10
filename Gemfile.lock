@@ -1,12 +1,9 @@
 GIT
   remote: https://github.com/rom-rb/rom.git
-  revision: 17c442543baa084a26d5cff50457489afcc7e19b
+  revision: 97107d887bbec6fb94fe38d451ae136fcaf00cd7
   branch: master
   specs:
     rom (0.6.0)
-      addressable (~> 2.3)
-      charlatan (~> 0.1, >= 0.1)
-      concord (~> 0.1, >= 0.1.4)
       descendants_tracker (~> 0.0, >= 0.0.4)
       equalizer (~> 0.0, >= 0.0.9)
       inflecto (~> 0.0, >= 0.0.2)
@@ -22,14 +19,6 @@ GEM
       minitest (~> 5.1)
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
-    adamantium (0.2.0)
-      ice_nine (~> 0.11.0)
-      memoizable (~> 0.4.0)
-    addressable (2.3.7)
-    charlatan (0.1.0)
-    concord (0.1.5)
-      adamantium (~> 0.2.0)
-      equalizer (~> 0.0.9)
     descendants_tracker (0.0.4)
       thread_safe (~> 0.3, >= 0.3.1)
     diff-lcs (1.2.5)
@@ -43,11 +32,8 @@ GEM
       multi_xml (>= 0.5.2)
     httpclient (2.6.0.1)
     i18n (0.7.0)
-    ice_nine (0.11.1)
     inflecto (0.0.2)
     json (1.8.2)
-    memoizable (0.4.2)
-      thread_safe (~> 0.3, >= 0.3.1)
     minitest (5.5.1)
     multi_xml (0.5.5)
     multipart-post (2.0.0)
