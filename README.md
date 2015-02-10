@@ -1,6 +1,6 @@
 # ROM::Neo4j
 
-Map objects returned from Neo4j graph traversals using the ROM toolkit.
+Map objects returned from Neo4j graph traversals using the [Ruby Object Mapper](https://github.com/rom-rb/rom) toolkit.
 
 ## Status
 
