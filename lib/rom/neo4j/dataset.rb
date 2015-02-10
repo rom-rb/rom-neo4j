@@ -1,35 +1,12 @@
 require 'rom/support/array_dataset'
 
-module Neo4j
-  module Core
-    module QueryClauses
-
-      class ReturnClause < Clause
-
-        def from_key_and_value(key, value)
-          case value
-          when Array
-            value.map do |v|
-              from_key_and_value(key, v)
-            end.join(', ')
-          when String, Symbol
-            # `row_proc` expects aliased properties not full paths
-            # eg: 'title' rather than 'n.title'
-            "#{key}.#{value} AS #{value}"
-          else
-            fail ArgError, value
-          end
-        end
-
-      end
-
-    end
-  end
-end
-
 module ROM
   module Neo4j
-
+    # A dataset represents a collection of objects returned from a traversal
+    # over a sub-graph.
+    #
+    # Datasets are Enumerable objects and can be manipulated using the standard
+    # methods, `each`, `map`, `inject`, and so forth.
     class Dataset
       include ArrayDataset
 
@@ -38,12 +15,12 @@ module ROM
         @traversal = traversal
       end
 
-      def map_properties(properties = [])
-        @properties = properties
+      def to_cypher
+        @traversal.to_cypher
       end
 
       def to_a
-        @traversal.return(n: @properties).to_a
+        @traversal.to_a
       end
 
       def each(&iter)
@@ -51,7 +28,7 @@ module ROM
       end
 
       def where(conditions)
-        Dataset.new(@binding, @traversal.where(n: conditions))
+        @traversal.where(n: conditions)
       end
 
     end
