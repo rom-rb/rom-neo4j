@@ -32,7 +32,7 @@ describe 'Neo4j adapter' do
       matches '(director:Person)-[:DIRECTED]->(movie:Movie)'
       returns 'DISTINCT director.name as name'
 
-      def directors_of(title)
+      def by_movie(title)
         where('movie.title' => title)
       end
 
@@ -66,7 +66,7 @@ describe 'Neo4j adapter' do
       expect(movie.released).to eql(1999)
       expect(movie.tagline).to eql('Welcome to the Real World')
 
-      director = rom.read(:directors).directors_of('RescueDawn').first
+      director = rom.read(:directors).by_movie('RescueDawn').first
 
       expect(director.name).to eql('Werner Herzog')
     end
