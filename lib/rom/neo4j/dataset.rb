@@ -17,32 +17,27 @@ module ROM
         @query.to_cypher
       end
 
-      def to_a
-        array = @query.to_a
-        array
-      end
-
       def each(&iter)
-        to_a.each(&iter)
+        @query.each(&iter)
       end
 
-      def where(conditions)
-        @query = @query.where(conditions)
+      def where(*conditions)
+        @query = @query.where(*conditions)
         self
       end
 
-      def start(conditions)
-        @query = @query.start(conditions)
+      def start(*conditions)
+        @query = @query.start(*conditions)
         self
       end
 
-      def match(conditions)
-        @query = @query.match(conditions)
+      def match(*conditions)
+        @query = @query.match(*conditions)
         self
       end
 
-      def return(conditions)
-        @query = @query.return(conditions)
+      def return(*conditions)
+        @query = @query.return(*conditions)
         self
       end
 

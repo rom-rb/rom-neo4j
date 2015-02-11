@@ -15,7 +15,7 @@ module ROM
       # Sets up the dataset with a default traversal configured by the relation DSL.
       def self.finalize(env, relation)
         @traversal.each do |query_method, conditions|
-          relation.dataset.send(query_method.to_sym, conditions) if conditions
+          relation.dataset.send(query_method.to_sym, *conditions) if conditions
         end
       end
 
@@ -27,12 +27,11 @@ module ROM
             attr_reader :traversal
           end
         end
-        # klass.instance_variable_set('@start_node', false)
-        # klass.instance_variable_set('@match_anchor', false)
-        # klass.instance_variable_set('@return_structure', false)
+
         klass.instance_variable_set('@traversal', {
           start: false, match: false, return: false
         })
+
         super
       end
 
@@ -43,8 +42,8 @@ module ROM
       #
       # @see http://neo4j.com/docs/stable/query-start.html
       #
-      def self.start(*args)
-        @traversal[:start] = args
+      def self.start(*conditions)
+        @traversal[:start] = conditions
       end
 
       # Specify a `MATCH` clause for the relation's graph traversal. If you’re
@@ -66,8 +65,8 @@ module ROM
       #
       # @see http://neo4j.com/docs/stable/query-match.html
       #
-      def self.matches(*args)
-        @traversal[:match] = args
+      def self.matches(*conditions)
+        @traversal[:match] = conditions
       end
 
       # Specify a `RETURN` clause for the relation. This will define the
@@ -78,8 +77,8 @@ module ROM
       #
       # @see http://neo4j.com/docs/stable/query-return.html
       #
-      def self.returns(*args)
-        @traversal[:return] = args
+      def self.returns(*conditions)
+        @traversal[:return] = conditions
       end
 
     end
