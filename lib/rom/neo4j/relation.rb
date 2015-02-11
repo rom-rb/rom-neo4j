@@ -11,11 +11,19 @@ module ROM
         :start, :match, :where, :return
       )
 
-      # Sets up the dataset with a default traversal configured by the relation DSL.
-      def self.finalize(env, relation)
-        @traversal.each do |query_method, conditions|
-          relation.dataset.send(query_method.to_sym, *conditions) if conditions
+      # The row iterator. Calling this kicks off the actual query to the
+      # database server.
+      #
+      # Before triggering the enumerator, it rebuilds the dataset with the
+      # default traversal configured by the relation DSL.
+      #
+      def each(&iter)
+        # TODO: reconsider whether this is appropriate? May require changing the API
+        self.class.traversal.each do |query_method, conditions|
+          @dataset = @dataset.send(query_method.to_sym, *conditions) if conditions
         end
+
+        @dataset.each(&iter)
       end
 
       # Builds data structures to configure the relation DSL.

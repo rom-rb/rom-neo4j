@@ -22,23 +22,19 @@ module ROM
       end
 
       def where(*conditions)
-        @query = @query.where(*conditions)
-        self
+        self.class.new(@query.where(*conditions))
       end
 
       def start(*conditions)
-        @query = @query.start(*conditions)
-        self
+        self.class.new(@query.start(*conditions))
       end
 
       def match(*conditions)
-        @query = @query.match(*conditions)
-        self
+        self.class.new(@query.match(*conditions))
       end
 
       def return(*conditions)
-        @query = @query.return(*conditions)
-        self
+        self.class.new(@query.return(*conditions))
       end
 
     end
