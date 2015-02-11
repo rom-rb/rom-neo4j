@@ -15,15 +15,10 @@ describe 'Neo4j adapter' do
 
     setup.relation(:movies) do
       matches m: :Movie
-      # returns m: [:title, :released, :tagline]
-      returns 'm.title AS title, m.released AS released, m.tagline AS tagline'
+      returns m: [:title, :released, :tagline]
 
       def titled(title)
         where('m.title' => title)
-      end
-
-      def released_in(year)
-        where(released: year)
       end
 
     end
@@ -39,11 +34,12 @@ describe 'Neo4j adapter' do
     end
 
     setup.mappers do
+
       define(:movies) do
         model name: 'Movie'
 
-        prefix "m." # TODO: figure out how this works
-        symbolize_keys true
+        prefix :m
+        prefix_separator '.'
 
         attribute :title
         attribute :released
@@ -55,6 +51,7 @@ describe 'Neo4j adapter' do
 
         attribute :name
       end
+
     end
   end
 

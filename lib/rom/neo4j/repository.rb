@@ -11,7 +11,7 @@ module ROM
       end
 
       def dataset(name)
-        sets[name] = Dataset.new(name, @connection.query)
+        sets[name] = Dataset.new(@connection.query)
       end
 
       def dataset?(name)

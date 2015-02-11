@@ -1,26 +1,25 @@
-require 'rom/support/array_dataset'
-
 module ROM
   module Neo4j
-    # A dataset represents a collection returned from a traversal over a sub-graph.
+    # A dataset represents a collection returned from a query traversal over a
+    # sub-graph.
     #
     # Datasets are Enumerable objects and can be manipulated using the standard
     # methods, `each`, `map`, `inject`, and so forth.
     class Dataset
-      include ArrayDataset # TODO: can this be removed?
 
-      def initialize(name, traversal)
-        @name = name
-        @traversal = traversal
+      # @see http://www.rubydoc.info/gems/neo4j-core/Neo4j/Core/Query
+      # @param query [Neo4j::Core::Query] Query object returned from a Neo4j connection
+      def initialize(query)
+        @query = query
       end
 
       def to_cypher
-        @traversal.to_cypher
+        @query.to_cypher
       end
 
       def to_a
-        @traversal = @traversal.return(@return_structure) if @return_structure
-        @traversal.to_a
+        array = @query.to_a
+        array
       end
 
       def each(&iter)
@@ -28,28 +27,23 @@ module ROM
       end
 
       def where(conditions)
-        anchor_traversal
-        @traversal = @traversal.where(conditions)
+        @query = @query.where(conditions)
         self
       end
 
-      def graph_start_node(args)
-        @start_node = args
+      def start(conditions)
+        @query = @query.start(conditions)
+        self
       end
 
-      def graph_match_anchor(*args)
-        @match_anchor = args
+      def match(conditions)
+        @query = @query.match(conditions)
+        self
       end
 
-      def graph_return_structure(*args)
-        @return_structure = args
-      end
-
-      def anchor_traversal
-        return if @anchored
-        @traversal = @traversal.start(@start_node) if @start_node
-        @traversal = @traversal.match(@match_anchor) if @match_anchor
-        @anchored = true
+      def return(conditions)
+        @query = @query.return(conditions)
+        self
       end
 
     end

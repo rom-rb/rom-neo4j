@@ -7,13 +7,32 @@ module ROM
     # for mapping by specifying nodes, edges and properties in the `returns`.
     class Relation < ROM::Relation
 
-      forward :where
+      # TODO: document these methods
+      forward(
+        :start, :match, :where, :return
+      )
 
+      # Sets up the dataset with a default traversal configured by the relation DSL.
+      def self.finalize(env, relation)
+        @traversal.each do |query_method, conditions|
+          relation.dataset.send(query_method.to_sym, conditions) if conditions
+        end
+      end
+
+      # Builds data structures to configure the relation DSL.
       # @api private
       def self.inherited(klass)
-        klass.instance_variable_set('@start_anchor', false)
-        klass.instance_variable_set('@match_anchor', false)
-        klass.instance_variable_set('@return_structure', false)
+        klass.class_eval do
+          class << self
+            attr_reader :traversal
+          end
+        end
+        # klass.instance_variable_set('@start_node', false)
+        # klass.instance_variable_set('@match_anchor', false)
+        # klass.instance_variable_set('@return_structure', false)
+        klass.instance_variable_set('@traversal', {
+          start: false, match: false, return: false
+        })
         super
       end
 
@@ -25,7 +44,7 @@ module ROM
       # @see http://neo4j.com/docs/stable/query-start.html
       #
       def self.start(*args)
-        @start_node = args
+        @traversal[:start] = args
       end
 
       # Specify a `MATCH` clause for the relation's graph traversal. If you’re
@@ -48,7 +67,7 @@ module ROM
       # @see http://neo4j.com/docs/stable/query-match.html
       #
       def self.matches(*args)
-        @match_anchor = args
+        @traversal[:match] = args
       end
 
       # Specify a `RETURN` clause for the relation. This will define the
@@ -60,14 +79,7 @@ module ROM
       # @see http://neo4j.com/docs/stable/query-return.html
       #
       def self.returns(*args)
-        @return_structure = args
-      end
-
-      # @api private
-      def self.finalize(relations, relation)
-        relation.dataset.graph_start_node(@start_node)
-        relation.dataset.graph_match_anchor(@match_anchor)
-        relation.dataset.graph_return_structure(@return_structure)
+        @traversal[:return] = args
       end
 
     end
