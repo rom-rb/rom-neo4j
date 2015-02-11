@@ -1,5 +1,4 @@
 module ROM
-
   module Neo4j
 
     class Repository < ROM::Repository

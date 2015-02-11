@@ -1,5 +1,4 @@
 module ROM
-
   module Neo4j
 
     # Relation supporting Cypher graph traversals. Configure the sub-graph
@@ -27,11 +26,9 @@ module ROM
             attr_reader :traversal
           end
         end
-
         klass.instance_variable_set('@traversal', {
           start: false, match: false, return: false
         })
-
         super
       end
 
