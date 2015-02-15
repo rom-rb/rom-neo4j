@@ -8,7 +8,8 @@ module ROM
 
       # TODO: document these methods
       forward(
-        :start, :match, :where, :return
+        :start, :match, :where, :return, :limit, :merge, :order,
+        :optional_match, :params
       )
 
       # The row iterator. Calling this kicks off the actual query to the
@@ -18,7 +19,7 @@ module ROM
       # default traversal configured by the relation DSL.
       #
       def each(&iter)
-        # TODO: reconsider whether this is appropriate? May require changing the API
+        # TODO: can this configured by the repository?
         self.class.traversal.each do |query_method, conditions|
           @dataset = @dataset.send(query_method.to_sym, *conditions) if conditions
         end

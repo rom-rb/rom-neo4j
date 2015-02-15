@@ -37,6 +37,26 @@ module ROM
         self.class.new(@query.return(*conditions))
       end
 
+      def limit(*conditions)
+        self.class.new(@query.limit(*conditions))
+      end
+
+      def merge(*conditions)
+        self.class.new(@query.merge(*conditions))
+      end
+
+      def order(*conditions)
+        self.class.new(@query.order(*conditions))
+      end
+
+      def optional_match(*conditions)
+        self.class.new(@query.optional_match(*conditions))
+      end
+
+      def params(*conditions)
+        self.class.new(@query.params(*conditions))
+      end
+
     end
 
   end
