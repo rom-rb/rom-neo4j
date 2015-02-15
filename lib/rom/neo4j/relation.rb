@@ -58,13 +58,13 @@ module ROM
       #
       # @example Reproduce SQL style projections by passing node labels directly.
       #
-      #   setup.relation(:movies) do
+      #   class Movies < ROM::Relation[:neo4j]
       #     matches m: :movie
       #   end
       #
       # @example Specify topological matches using Cypher's ASCII-art syntax.
       #
-      #   setup.relation(:actors) do
+      #   class Actors < ROM::Relation[:neo4j]
       #     matches '(actor:Person)-[:ACTED_IN]->(movie)'
       #   end
       #
