@@ -4,11 +4,23 @@ Map objects returned from Neo4j graph traversals using the [Ruby Object Mapper](
 
 ## Status
 
-Incomplete experimental sketch.
+**Incomplete experimental sketch.**
 
 The adapter spec passes with the generic movies dataset distributed with Neo4j, but that's about all at this point.
 
 ## Install
+
+Install with Rubygems:
+
+```
+gem install rom-neo4j
+```
+
+Or add the dependency to your `Gemfile`:
+
+```
+gem 'rom-neo4j'
+```
 
 Right now, the fastest way to get started is to run the tests.
 
@@ -38,7 +50,6 @@ setup.relation(:movies) do
   def titled(title)
     where('m.title' => title)
   end
-
 end
 
 movie = rom.read(:movies).titled('The Matrix').first
@@ -56,7 +67,6 @@ setup.relation(:directors) do
   def by_movie(title)
     where('movie.title' => title)
   end
-
 end
 
 director = rom.read(:directors).by_movie('RescueDawn').first
