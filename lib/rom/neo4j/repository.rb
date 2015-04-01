@@ -1,6 +1,5 @@
 module ROM
   module Neo4j
-
     class Repository < ROM::Repository
       attr_reader :sets
 
@@ -16,7 +15,6 @@ module ROM
       def dataset?(name)
         sets.key?(name)
       end
-
     end
   end
 end

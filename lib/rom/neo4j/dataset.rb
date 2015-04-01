@@ -6,6 +6,7 @@ module ROM
     # Datasets are Enumerable objects and can be manipulated using the standard
     # methods, `each`, `map`, `inject`, and so forth.
     class Dataset
+      include Enumerable
 
       # @see http://www.rubydoc.info/gems/neo4j-core/Neo4j/Core/Query
       # @param query [Neo4j::Core::Query] Query object returned from a Neo4j connection
@@ -56,8 +57,6 @@ module ROM
       def params(*conditions)
         self.class.new(@query.params(*conditions))
       end
-
     end
-
   end
 end

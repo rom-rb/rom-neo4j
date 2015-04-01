@@ -1,6 +1,5 @@
 module ROM
   module Neo4j
-
     # Relation supporting Cypher graph traversals. Configure the sub-graph
     # for the relation by specifying a `match` pattern, and collect a dataset
     # for mapping by specifying nodes, edges and properties in the `returns`.
@@ -19,9 +18,12 @@ module ROM
       # default traversal configured by the relation DSL.
       #
       def each(&iter)
-        # TODO: can this configured by the repository?
-        self.class.traversal.each do |query_method, conditions|
-          @dataset = @dataset.send(query_method.to_sym, *conditions) if conditions
+        # Configure the default traversal
+        unless @configured
+          @configured = true
+          self.class.traversal.each do |query_method, conditions|
+            @dataset = @dataset.send(query_method.to_sym, *conditions) if conditions
+          end
         end
 
         @dataset.each(&iter)
@@ -35,9 +37,13 @@ module ROM
             attr_reader :traversal
           end
         end
+
         klass.instance_variable_set('@traversal', {
-          start: false, match: false, return: false
+          start: false,
+          match: false,
+          return: false
         })
+
         super
       end
 
