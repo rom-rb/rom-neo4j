@@ -2,7 +2,6 @@ require 'spec_helper'
 require 'rom/memory/dataset'
 
 describe ROM::Neo4j::Relation do
-  
   subject(:relation) { Class.new(ROM::Neo4j::Relation).new(dataset) }
 
   let(:dataset) { ROM::Memory::Dataset.new([matrix, reloaded]) }
