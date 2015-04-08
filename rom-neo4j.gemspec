@@ -19,9 +19,10 @@ Gem::Specification.new do |spec|
   spec.require_paths = ['lib']
 
   spec.add_runtime_dependency 'rom', '~> 0.6'
-  spec.add_runtime_dependency 'neo4j-core', '~> 4.0'
+  spec.add_runtime_dependency 'neo4j-core', '4.0.1'
 
   spec.add_development_dependency 'bundler'
   spec.add_development_dependency 'rake'
+  spec.add_development_dependency 'rspec'
   spec.add_development_dependency 'rubocop', '~> 0.28.0'
 end
