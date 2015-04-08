@@ -15,14 +15,18 @@ describe 'Neo4j adapter' do
         def by_title(title)
           where('m.title' => title)
         end
+
+        def by_year(year)
+          where('m.released' => year)
+        end
       end
 
       setup.mappers do
         define(:movies) do
           relation :movies
           model name: 'Movie'
-          #prefix :m
-          #prefix_separator '.'
+          # prefix :m
+          # prefix_separator '.'
           attribute :title
           attribute :released
           attribute :tagline
@@ -45,6 +49,9 @@ describe 'Neo4j adapter' do
       end
     end
 
+    it 'maps movies #by_year' do
+      expect(movies.by_year(1999).to_a.count).to eq(4)
+    end
   end
 
   context 'with directors relation and mapper' do
