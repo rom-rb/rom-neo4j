@@ -1,0 +1,178 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://localhost:7474/authentication
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Content-Type:
+      - application/json
+      User-Agent:
+      - neo4j-core-gem/4.0.1 (https://github.com/neo4jrb/neo4j-core)
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      Connection:
+      - keep-alive
+      Keep-Alive:
+      - 30
+  response:
+    status:
+      code: 404
+      message: Not Found
+    headers:
+      Access-Control-Allow-Origin:
+      - "*"
+      Content-Type:
+      - text/html; charset=ISO-8859-1
+      Cache-Control:
+      - must-revalidate,no-cache,no-store
+      Content-Length:
+      - '0'
+      Server:
+      - Jetty(9.0.5.v20130815)
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: 
+  recorded_at: Wed, 13 May 2015 11:28:40 GMT
+- request:
+    method: get
+    uri: http://localhost:7474/
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Content-Type:
+      - application/json
+      User-Agent:
+      - neo4j-core-gem/4.0.1 (https://github.com/neo4jrb/neo4j-core)
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      Connection:
+      - keep-alive
+      Keep-Alive:
+      - 30
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=UTF-8
+      Access-Control-Allow-Origin:
+      - "*"
+      Content-Length:
+      - '100'
+      Server:
+      - Jetty(9.0.5.v20130815)
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+          "management" : "http://localhost:7474/db/manage/",
+          "data" : "http://localhost:7474/db/data/"
+        }
+    http_version: 
+  recorded_at: Wed, 13 May 2015 11:28:40 GMT
+- request:
+    method: get
+    uri: http://localhost:7474/db/data/
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Content-Type:
+      - application/json
+      User-Agent:
+      - neo4j-core-gem/4.0.1 (https://github.com/neo4jrb/neo4j-core)
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      Connection:
+      - keep-alive
+      Keep-Alive:
+      - 30
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=UTF-8
+      Access-Control-Allow-Origin:
+      - "*"
+      Content-Length:
+      - '732'
+      Server:
+      - Jetty(9.0.5.v20130815)
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+          "extensions" : {
+          },
+          "node" : "http://localhost:7474/db/data/node",
+          "node_index" : "http://localhost:7474/db/data/index/node",
+          "relationship_index" : "http://localhost:7474/db/data/index/relationship",
+          "extensions_info" : "http://localhost:7474/db/data/ext",
+          "relationship_types" : "http://localhost:7474/db/data/relationship/types",
+          "batch" : "http://localhost:7474/db/data/batch",
+          "cypher" : "http://localhost:7474/db/data/cypher",
+          "indexes" : "http://localhost:7474/db/data/schema/index",
+          "constraints" : "http://localhost:7474/db/data/schema/constraint",
+          "transaction" : "http://localhost:7474/db/data/transaction",
+          "node_labels" : "http://localhost:7474/db/data/labels",
+          "neo4j_version" : "2.1.3"
+        }
+    http_version: 
+  recorded_at: Wed, 13 May 2015 11:28:40 GMT
+- request:
+    method: post
+    uri: http://localhost:7474/db/data/cypher
+    body:
+      encoding: UTF-8
+      string: '{"query":"MATCH (m:`Movie`) WHERE m.released = {m_released} RETURN
+        m.title AS title, m.released AS released, m.tagline as tagline","params":{"m_released":1999}}'
+    headers:
+      Content-Type:
+      - application/json
+      User-Agent:
+      - neo4j-core-gem/4.0.1 (https://github.com/neo4jrb/neo4j-core)
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      Connection:
+      - keep-alive
+      Keep-Alive:
+      - 30
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=UTF-8
+      Access-Control-Allow-Origin:
+      - "*"
+      Content-Length:
+      - '339'
+      Server:
+      - Jetty(9.0.5.v20130815)
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+          "columns" : [ "title", "released", "tagline" ],
+          "data" : [ [ "The Matrix", 1999, "Welcome to the Real World" ], [ "Snow Falling on Cedars", 1999, "First loves last. Forever." ], [ "The Green Mile", 1999, "Walk a mile you'll never forget." ], [ "Bicentennial Man", 1999, "One robot's 200 year journey to become an ordinary man." ] ]
+        }
+    http_version: 
+  recorded_at: Wed, 13 May 2015 11:28:40 GMT
+recorded_with: VCR 2.9.3

@@ -3,7 +3,7 @@ sudo: false
 cache: bundler
 bundler_args: --without yard guard benchmarks tools
 script:
-  - "bundle exec rake neo4j:install[$NEO4J_VERSION] neo4j:disable_auth neo4j:start default --trace"
+  - "bundle exec rake --trace"
 language: ruby
 rvm:
   - 2.2.0
