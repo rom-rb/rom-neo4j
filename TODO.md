@@ -20,6 +20,12 @@
 - Unit test of cypher query building
 - Documentation of instance methods
 
+## Specs
+
+- Add webmock or VCR and dump local requests to movies dataset
+- Complete query building unit test
+- Ensure relation spec is up to date with 0.7 ROM conventions
+
 ## Housekeeping
 
 - Add LICENSE
