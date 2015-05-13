@@ -22,7 +22,9 @@
 
 ## Specs
 
-- Add webmock or VCR and dump local requests to movies dataset
+- ~~Add webmock or VCR and dump local requests to movies dataset~~
+- Fix jruby build on Travis
+- Get Travis builds working with local install of Neo4j server and remove VCR
 - Complete query building unit test
 - Ensure relation spec is up to date with 0.7 ROM conventions
 
@@ -30,4 +32,3 @@
 
 - Add LICENSE
 - Tidy up README
-- Configurable host URI in tests
