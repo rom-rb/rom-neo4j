@@ -2,8 +2,7 @@ require 'spec_helper'
 require 'rom/lint/spec'
 
 describe 'Neo4j adapter' do
-  let(:dsn) { 'http://localhost:7474' }
-  let(:setup) { ROM.setup(:neo4j, dsn) }
+  let(:setup) { ROM.setup(:neo4j, server_url, basic_auth: basic_auth_hash) }
 
   context 'with movies relation and mapper' do
     let(:rom) do
