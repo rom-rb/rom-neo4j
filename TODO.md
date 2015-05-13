@@ -30,5 +30,4 @@
 
 - Add LICENSE
 - Tidy up README
-- Add Travis CI hooks
 - Configurable host URI in tests
