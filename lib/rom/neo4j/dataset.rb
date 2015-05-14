@@ -14,6 +14,11 @@ module ROM
         @query = query
       end
 
+      # @return [Neo4j::Session]
+      def session
+        @query.session
+      end
+
       def to_cypher
         @query.to_cypher
       end

@@ -7,6 +7,10 @@ module Neo4j
     #
     # @see http://www.rubydoc.info/gems/neo4j-core/Neo4j/Core/Query
     class Query
+      # Exports the underlying session handle.
+      # @return [Neo4j::Session]
+      attr_reader :session
+
       def each
         return enum_for(:each) unless block_given?
 

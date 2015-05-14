@@ -92,4 +92,10 @@ describe 'Neo4j adapter' do
       end
     end
   end
+
+  context 'creating nodes in a transaction' do
+    let(:rom) do
+      setup.command
+    end
+  end
 end
