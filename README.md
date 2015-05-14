@@ -75,4 +75,6 @@ director.name # => "Werner Herzog"
 
 ## Roadmap
 
-A work in progress.
+- 0.1.0 Basic commands integration
+- 0.2.0 Documentation and usage examples
+- 0.3.0 Prefix mapping and entire ROM API supported
