@@ -2,7 +2,7 @@ require 'spec_helper'
 require 'rom/lint/spec'
 
 describe 'Neo4j adapter' do
-  let(:setup) { ROM.setup(:neo4j, neo4j_server_url) }
+  let(:setup) { rom_neo4j_setup }
 
   context 'with movies relation and mapper' do
     let(:rom) do

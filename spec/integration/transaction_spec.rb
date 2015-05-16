@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe 'Neo4j commands' do
-  let(:setup) { ROM.setup(:neo4j, neo4j_server_url) }
+  let(:setup) { rom_neo4j_setup }
   subject(:rom) { setup.finalize }
   subject(:cities) { rom.commands.cities }
 
