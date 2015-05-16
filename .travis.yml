@@ -22,11 +22,6 @@ env:
   - NEO4J_VERSION="2.2.0"
   - NEO4J_VERSION="2.1.7"
 
-matrix:
-  # TODO: fix configuration so it works on 2.2.0
-  allow_failures:
-    - env: NEO4J_VERSION="2.2.0"
-
 before_install:
   # install Neo4j locally:
   - wget dist.neo4j.org/neo4j-community-$NEO4J_VERSION-unix.tar.gz
