@@ -40,20 +40,16 @@ describe 'Neo4j adapter' do
     end
 
     it 'maps movies #by_title' do |example|
-      VCR.use_cassette(example.description) do
-        movies.by_title('The Matrix').as(:movies).first.tap do |movie|
-          expect(movie).to be_a(Movie)
-          expect(movie.title).to eql('The Matrix')
-          expect(movie.released).to eql(1999)
-          expect(movie.tagline).to eql('Welcome to the Real World')
-        end
+      movies.by_title('The Matrix').as(:movies).first.tap do |movie|
+        expect(movie).to be_a(Movie)
+        expect(movie.title).to eql('The Matrix')
+        expect(movie.released).to eql(1999)
+        expect(movie.tagline).to eql('Welcome to the Real World')
       end
     end
 
     it 'maps movies #by_year' do |example|
-      VCR.use_cassette(example.description) do
-        expect(movies.by_year(1999).to_a.count).to eq(4)
-      end
+      expect(movies.by_year(1999).to_a.count).to eq(4)
     end
   end
 
@@ -84,18 +80,10 @@ describe 'Neo4j adapter' do
     end
 
     it 'maps directors #by_movie_title' do |example|
-      VCR.use_cassette(example.description) do
-        directors.by_movie('RescueDawn').as(:directors).first.tap do |director|
-          expect(director).to be_a(Director)
-          expect(director.name).to eql('Werner Herzog')
-        end
+      directors.by_movie('RescueDawn').as(:directors).first.tap do |director|
+        expect(director).to be_a(Director)
+        expect(director.name).to eql('Werner Herzog')
       end
-    end
-  end
-
-  context 'creating nodes in a transaction' do
-    let(:rom) do
-      setup.command
     end
   end
 end

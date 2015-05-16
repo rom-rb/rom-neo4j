@@ -1,6 +1,4 @@
 require 'rom-neo4j'
-require 'webmock'
-require 'vcr'
 
 def server_url_config
   ENV['NEO4J_URL'] || 'http://localhost:7474'
@@ -16,10 +14,4 @@ def rom_neo4j_setup
   else
     ROM.setup(:neo4j, server_url_config)
   end
-end
-
-VCR.configure do |config|
-  config.cassette_library_dir = 'spec/fixtures/neo4j_server'
-  config.hook_into :webmock
-  config.allow_http_connections_when_no_cassette = true
 end
