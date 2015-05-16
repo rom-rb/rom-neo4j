@@ -31,6 +31,7 @@ before_install:
   # install Neo4j locally:
   - wget dist.neo4j.org/neo4j-community-$NEO4J_VERSION-unix.tar.gz
   - tar -xzf neo4j-community-$NEO4J_VERSION-unix.tar.gz
+  - bundle exec rake disable_auth
   - neo4j-community-$NEO4J_VERSION/bin/neo4j start
   - neo4j-community-$NEO4J_VERSION/bin/neo4j-shell -file spec/fixtures/movies.cypher
 
