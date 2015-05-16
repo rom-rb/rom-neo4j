@@ -8,8 +8,8 @@ script:
   - "bundle exec rake --trace"
 
 rvm:
-  - 2.2.0
-  - 2.1.5
+  - 2.2.2
+  - 2.1.6
   #- jruby-1.7.16
   # - jruby-19mode
 
