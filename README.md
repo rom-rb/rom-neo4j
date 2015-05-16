@@ -4,9 +4,7 @@ Map objects returned from Neo4j graph traversals using the [Ruby Object Mapper](
 
 ## Status
 
-**Incomplete experimental sketch.**
-
-The adapter spec passes with the generic movies dataset distributed with Neo4j, but that's about all at this point.
+[![Build Status](https://travis-ci.org/rom-rb/rom-neo4j.svg?branch=master)](https://travis-ci.org/rom-rb/rom-neo4j)
 
 ## Install
 
