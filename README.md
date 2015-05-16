@@ -73,6 +73,7 @@ director.name # => "Werner Herzog"
 
 ## Roadmap
 
-- 0.1.0 Basic commands integration
-- 0.2.0 Documentation and usage examples
-- 0.3.0 Prefix mapping and entire ROM API supported
+- 0.1.0 Relation/Dataset for mapping cypher traversals
+- 0.2.0 Basic Commands integration
+- 0.4.0 Documentation and usage examples
+- 0.5.0 Prefix mapping and node/rel helpers
