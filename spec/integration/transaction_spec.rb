@@ -6,15 +6,10 @@ describe 'Neo4j commands' do
   subject(:cities) { rom.commands.cities }
 
   before do
-    class City
-      def initialize(name)
-        @name = name
-      end
-    end
-
     setup.commands(:cities) do
       define(:create_node) do
-        input City
+        input Hash
+        labels :city
         result :one
       end
     end
@@ -24,10 +19,10 @@ describe 'Neo4j commands' do
 
   context '#execute' do
     it 'creates a single node' do |example|
-      VCR.use_cassette(example.description) do
+      #VCR.use_cassette(example.description) do
         result = cities.create_node.execute(name: 'Sydney')
         expect(result).to eq(name: 'Sydney')
-      end
+      #end
     end
   end
 end

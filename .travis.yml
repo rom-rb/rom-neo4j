@@ -2,6 +2,7 @@ language: ruby
 sudo: false
 cache: bundler
 bundler_args: --without yard guard benchmarks tools
+services: neo4j
 script:
   - "bundle exec rake --trace"
 language: ruby
@@ -10,6 +11,3 @@ rvm:
   - 2.1.5
   #- jruby-1.7.16
   # - jruby-19mode
-# env:
-#   - NEO4J_VERSION=community-2.2.0-RC01
-#   - NEO4J_VERSION=community-2.1.7
