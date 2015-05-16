@@ -1,0 +1,22 @@
+#!/usr/bin/env ruby
+
+puts "Disabling server auth for: #{ENV['NEO4J_VERSION']}"
+
+auth_properties = [
+  'dbms.security.authorization_enabled=true',
+  'dbms.security.auth_enabled=true'
+]
+
+properties = "neo4j-community-#{ENV['NEO4J_VERSION']}/conf/neo4j-server.properties"
+
+config_source = File.read(properties)
+
+puts config_source
+
+auth_properties.each do |prop|
+  config_source.gsub!(prop, prop.gsub('=true', '=false'))
+end
+
+File.open(properties, 'w') do |f| 
+	f.puts(config_source)
+end
