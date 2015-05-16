@@ -17,6 +17,8 @@
 
 ## Dataset
 
+- Add batch finders
+- Add find by index, find by id, and find by label
 - Unit test of cypher query building
 - Documentation of instance methods
 
@@ -24,7 +26,7 @@
 
 - ~~Add webmock or VCR and dump local requests to movies dataset~~
 - Fix jruby build on Travis
-- Get Travis builds working with local install of Neo4j server and remove VCR
+- ~~Get Travis builds working with local install of Neo4j server and remove VCR~~
 - Complete query building unit test
 - Ensure relation spec is up to date with 0.7 ROM conventions
 
