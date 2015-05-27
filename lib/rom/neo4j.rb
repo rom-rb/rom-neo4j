@@ -4,7 +4,7 @@ require 'rom'
 
 require 'rom/neo4j/dataset'
 require 'rom/neo4j/relation'
-require 'rom/neo4j/repository'
+require 'rom/neo4j/gateway'
 require 'rom/neo4j/commands'
 require 'rom/neo4j/support/core_ext'
 

@@ -1,6 +1,6 @@
 module ROM
   module Neo4j
-    class Repository < ROM::Repository
+    class Gateway < ROM::Gateway
       attr_reader :sets
 
       def initialize(uri, options={})
