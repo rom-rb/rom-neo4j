@@ -1,3 +1,5 @@
+require 'rom/gateway'
+
 module ROM
   module Neo4j
     class Gateway < ROM::Gateway
