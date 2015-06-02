@@ -59,7 +59,7 @@ setup.relation(:movies) do
   end
 end
 
-movie = rom.read(:movies).titled('The Matrix').first
+movie = rom.relation(:movies).titled('The Matrix').one
 movie.title   # => "The Matrix"
 movie.updated # => 1999
 ```
@@ -76,7 +76,7 @@ setup.relation(:directors) do
   end
 end
 
-director = rom.read(:directors).by_movie('RescueDawn').first
+director = rom.relation(:directors).by_movie('RescueDawn').one
 director.name # => "Werner Herzog"
 ```
 
