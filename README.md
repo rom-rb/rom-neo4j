@@ -1,10 +1,19 @@
+[gem]: https://rubygems.org/gems/rom-neo4j
+[travis]: https://travis-ci.org/rom-rb/rom-neo4j
+[gemnasium]: https://gemnasium.com/rom-rb/rom-neo4j
+[codeclimate]: https://codeclimate.com/github/rom-rb/rom-neo4j
+[inchpages]: http://inch-ci.org/github/rom-rb/rom-neo4j
+
 # ROM::Neo4j
 
+[![Gem Version](https://badge.fury.io/rb/rom-neo4j.svg)][gem]
+[![Build Status](https://travis-ci.org/rom-rb/rom-neo4j.svg?branch=master)][travis]
+[![Dependency Status](https://gemnasium.com/rom-rb/rom-neo4j.png)][gemnasium]
+[![Code Climate](https://codeclimate.com/github/rom-rb/rom-neo4j/badges/gpa.svg)][codeclimate]
+[![Test Coverage](https://codeclimate.com/github/rom-rb/rom-neo4j/badges/coverage.svg)][codeclimate]
+[![Inline docs](http://inch-ci.org/github/rom-rb/rom-neo4j.svg?branch=master)][inchpages]
+
 Map objects returned from Neo4j graph traversals using the [Ruby Object Mapper](https://github.com/rom-rb/rom) toolkit.
-
-## Status
-
-[![Build Status](https://travis-ci.org/rom-rb/rom-neo4j.svg?branch=master)](https://travis-ci.org/rom-rb/rom-neo4j)
 
 ## Install
 
