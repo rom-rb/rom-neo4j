@@ -4,6 +4,7 @@ module ROM
     # for the relation by specifying a `match` pattern, and collect a dataset
     # for mapping by specifying nodes, edges and properties in the `returns`.
     class Relation < ROM::Relation
+      adapter :neo4j
 
       # TODO: document these methods
       forward(
