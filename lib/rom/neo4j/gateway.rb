@@ -8,10 +8,8 @@ module ROM
         @connection = ::Neo4j::Session.open(:server_db, uri, options)
       end
 
-      def dataset(spec)
-        %i[ start match return ].reduce(@connection.query) do |query, clause|
-          spec[clause] ? query.send(clause, spec[clause] : query
-        end
+      def dataset(dataset)
+        @connection.query
       end
 
     end
