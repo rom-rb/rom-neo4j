@@ -9,7 +9,10 @@ module ROM
       end
 
       def dataset(dataset)
-        @connection.query
+        case dataset
+        when String then @connection.query(dataset)
+        else @connection.query
+        end
       end
 
     end
