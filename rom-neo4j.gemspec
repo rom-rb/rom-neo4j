@@ -18,8 +18,8 @@ Gem::Specification.new do |spec|
   spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
   spec.require_paths = ['lib']
 
-  spec.add_runtime_dependency 'rom', '~> 0.9', '>= 0.9.1'
-  spec.add_runtime_dependency 'neo4j-core', '5.1.3'
+  spec.add_runtime_dependency 'rom', '>= 0.9.1'
+  spec.add_runtime_dependency 'neo4j-core', '>=5.1.3'
 
   spec.add_development_dependency 'bundler'
   spec.add_development_dependency 'rake'
